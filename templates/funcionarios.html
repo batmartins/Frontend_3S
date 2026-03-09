@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h3>Funcionários</h3>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Cadastrar novo funcionário
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastro</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label>
+                        Nome:
+                        <input placeholder="Digite o nome" name="form-nome" class="form-control">
+                    </label>
+                    <label>
+                        Data de nascimento:
+                        <input placeholder="Digite a data de nascimento" name="form-data" class="form-control"
+                               type="date">
+                    </label>
+                    <label>
+                        CPF:
+                        <input placeholder="Digite o CPF" name="form-cpf" class="form-control">
+                    </label>
+                    <label>
+                        E-mail:
+                        <input placeholder="Digite o e-mail" name="form-email" class="form-control">
+                    </label>
+                    <label>
+                        Senha:
+                        <input placeholder="Digite a senha" name="form-senha" class="form-control">
+                    </label>
+                    <label>
+                        Cargo:
+                        <input placeholder="Digite o cargo" name="form-cargo" class="form-control">
+                    </label>
+                    <label>
+                        Salário:
+                        <input placeholder="Digite o salário" name="form-salario" class="form-control">
+                    </label>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Data de nascimento</th>
+        <th scope="col">CPF</th>
+        <th scope="col">E-mail</th>
+
+        <th scope="col">Cargo</th>
+        <th scope="col">Salário</th>
+        <th scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in funcio_exe %}
+        <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.nome}}</td>
+            <td>{{i.data_nascimento}}</td>
+            <td>{{i.cpf}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.cargo}}</td>
+            <td>{{i.salario}}</td>
+            <td><a href=""><i class="bi bi-pencil"></i></a><a href=""><i class="bi bi-trash text-danger"></i></a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

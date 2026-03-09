@@ -7,11 +7,17 @@
 <div class="calculos">
 
     <a href="{{ url_for('operacoes') }}">
-        <div class="card_calculo">
+        <div class="card_calculo card d-flex justify-content-center align-items-center">
+            <i class="icon_calculo bi bi-calculator"></i>
             <h3>Operações Aritméticas</h3>
         </div>
     </a>
-
+    <a href="{{ url_for('geometria') }}">
+        <div class="card_calculo card d-flex justify-content-center align-items-center">
+            <i class="icon_calculo bi bi-triangle-fill"></i>
+            <h3>Geometria</h3>
+        </div>
+    </a>
 </div>
 
 {% endblock %}

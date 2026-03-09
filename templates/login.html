@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h3>Login</h3>
+<!-- verifica se possui mensagens enviadas pelo app -->
+<!-- definir 'with_categories=true' caso queira ter acesso as categorias -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-error px-3">
+    <!-- percorrer a lista de mensagens -->
+    {% for category, message in messages %}
+    <!-- criar um  card filho -->
+    <div class="alert {{ category }} alert-dismissible fade show px-5" role="alert">
+        <strong>{{ message }}</strong>.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<div class=" d-flex justify-content-center align-items-center">
+    <div class="shadow d-flex flex-column">
+        <form action="{{url_for('login')}}" method="post">
+            <label>
+                CPF:
+                <input placeholder="digite o seu CPF" name="form-cpf">
+            </label>
+            <label>
+                Senha:
+                <input placeholder="digite a sua senha" name="form-senha">
+            </label>
+            <button type="submit">Entrar</button>
+        </form>
+        <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="">Não tem conta? Cadastre-se</a>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastro</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{url_for('cadastro_funcionario')}}" method="post">
+                        <label>
+                            Nome:
+                            <input placeholder="Digite o nome" name="form-nome" class="form-control">
+                        </label>
+                        <label>
+                            Data de nascimento:
+                            <input placeholder="Digite a data de nascimento" name="form-data_nascimento"
+                                   class="form-control" type="date">
+                        </label>
+                        <label>
+                            CPF:
+                            <input placeholder="Digite o CPF" name="form-cpf" class="form-control">
+                        </label>
+                        <label>
+                            E-mail:
+                            <input placeholder="Digite o e-mail" name="form-email" class="form-control">
+                        </label>
+                        <label>
+                            Senha:
+                            <input placeholder="Digite a senha" name="form-senha" class="form-control">
+                        </label>
+                        <label>
+                            Cargo:
+                            <input placeholder="Digite o cargo" name="form-cargo" class="form-control">
+                        </label>
+                        <label>
+                            Salário:
+                            <input placeholder="Digite o salário" name="form-salario" class="form-control">
+                        </label>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock conteudo %}

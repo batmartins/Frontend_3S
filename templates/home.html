@@ -2,13 +2,57 @@
 
 {% block conteudo %}
 
-<div class="home">
-    <div class="texto-left">
-        <h1>Bem vindo ao site de soluções do SENAI</h1>
+<div class="carrossel d-flex overflow-hidden">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item bg-dark active" data-bs-interval="2000">
+            <img src="/static/img/carro.jpg" class="d-block w-100 opacity-50" alt="...">
+        </div>
+        <div class="carousel-item bg-dark" data-bs-interval="2000">
+            <img src="/static/img/ferrari.jpg" class="d-block w-100 opacity-50" alt="...">
+        </div>
+        <div class="carousel-item bg-dark" data-bs-interval="2000">
+            <img src="/static/img/motor.jpg" class="d-block w-100 opacity-50" alt="...">
+        </div>
     </div>
-    <div class="img-right">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
+    <div class="w-100 h-100 position-absolute d-flex flex-column justify-content-evenly" >
+        <p class="title-senai text-white display-1 text-center">Capacitação profissional automotiva</p>
+        <p class="subtitle-senai text-white display-6 text-center">Confira os nossos cursos Profissionalizantes</p>
     </div>
+</div>
+<div class="cursos">
+
+    <div class="curso-text col-8">
+        <h2>Estética automotiva</h2>
+
+        <p> O curso de Estética Automotiva é uma imersão completa para quem deseja transformar a paixão por carros em um negócio lucrativo e profissional. Mais do que uma limpeza comum, o treinamento capacita o aluno a dominar técnicas avançadas de detalhamento (detailing), abrangendo desde a lavagem técnica e descontaminação de pintura até processos refinados de polimento técnico, higienização interna profunda e aplicação de proteções cerâmicas (vitrificação). Com foco na entrega de resultados de alto padrão, o curso combina teoria e prática para garantir que o profissional saiba utilizar os produtos e ferramentas corretas para cada tipo de superfície, elevando o valor agregado do veículo e garantindo a satisfação dos clientes mais exigentes.</p>
+    </div>
+    <div class="curso-img bg-dark col-4">
+        <img src="/static/img/dodge.jpg" class="w-100 h-100">
+    </div>
+
+</div>
+<div class="cursos">
+    <div class="curso-img bg-dark col-4">
+        <img src="/static/img/carro-vertical.jpg" class="w-100 h-100">
+    </div>
+
+    <div class="curso-text col-8">
+        <h2>Mecânica</h2>
+
+        <p> O curso de Mecânica Automotiva é projetado para transformar o entusiasmo por motores em uma carreira técnica sólida e de alta demanda. Através de uma abordagem prática e atualizada, o aluno aprende a diagnosticar e reparar sistemas fundamentais, como motor, suspensão, freios e transmissão, além de dominar o uso de scanners de diagnóstico para lidar com a eletrônica embarcada dos veículos modernos. O treinamento foca na precisão técnica e na segurança, capacitando o profissional a realizar desde manutenções preventivas de rotina até intervenções complexas de retífica e ajustes de performance, preparando-o para atuar com excelência em oficinas próprias ou centros automotivos especializados.</p>
+    </div>
+
 </div>
 
 {% endblock %}

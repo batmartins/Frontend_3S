@@ -4,29 +4,134 @@
 
 <h1>Operações Aritméticas</h1>
 
+<!-- verifica se possui mensagens enviadas pelo app -->
+<!-- definir 'with_categories=true' caso queira ter acesso as categorias -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-error px-3">
+    <!-- percorrer a lista de mensagens -->
+    {% for category, message in messages %}
+    <!-- criar um  card filho -->
+    <div class="alert {{ category }} alert-dismissible fade show px-5" role="alert">
+        <strong>{{ message }}</strong>.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
 <div class="calculos">
 
     <div class="card_operacao">
         <h2>Adição</h2>
         <form class="form-somar" action="{{ url_for('somar') }}" method="post">
             <label>
-                <input placeholder="Digite um número" name="form-n1">
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
             </label>
 
             <p class="operador">+</p>
 
             <label>
-                <input placeholder="Digite um número" name="form-n2">
+                <input placeholder="Digite um número" name="form-n2" class="form-control">
             </label>
 
             <p class="resultado">
                 {% if soma is defined %}
-                    {{ n1 }} + {{ n2 }} = {{ soma }}
+                {{ n1 }} + {{ n2 }} = {{ soma }}
                 {% else %}
                 {% endif %}
             </p>
 
-            <button type="submit">Somar</button>
+            <button type="submit" class="btn btn-info">Somar</button>
+        </form>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-primary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Como calcular
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <h4>Adição</h4>
+                        <p>Para somar é preciso de dois ou mais numeros</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="card_operacao">
+        <h2>Subtração</h2>
+        <form class="form-somar" action="{{ url_for('subtrair') }}" method="post">
+            <label>
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+            <p class="operador">-</p>
+
+            <label>
+                <input placeholder="Digite um número" name="form-n2" class="form-control">
+            </label>
+
+            <p class="resultado">
+                {% if subtracao is defined %}
+                {{ n1 }} - {{ n2 }} = {{ subtracao }}
+                {% else %}
+                {% endif %}
+            </p>
+
+            <button type="submit" class="btn btn-info">Subtracao</button>
+        </form>
+
+    </div>
+    <div class="card_operacao">
+        <h2>Multiplicação</h2>
+        <form class="form-somar" action="{{ url_for('multiplicar') }}" method="post">
+            <label>
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+            <p class="operador">*</p>
+
+            <label>
+                <input placeholder="Digite um número" name="form-n2" class="form-control">
+            </label>
+
+            <p class="resultado">
+                {% if multiplicacao is defined %}
+                {{ n1 }} * {{ n2 }} = {{ multiplicacao }}
+                {% else %}
+                {% endif %}
+            </p>
+
+            <button type="submit" class="btn btn-info">Multiplicar</button>
+        </form>
+
+    </div>
+    <div class="card_operacao">
+        <h2>Divisão</h2>
+        <form class="form-somar" action="{{ url_for('dividir') }}" method="post">
+            <label>
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+            <p class="operador">/</p>
+
+            <label>
+                <input placeholder="Digite um número" name="form-n2" class="form-control">
+            </label>
+
+            <p class="resultado">
+                {% if divisao is defined %}
+                {{ n1 }} / {{ n2 }} = {{ divisao }}
+                {% else %}
+                {% endif %}
+            </p>
+
+            <button type="submit" class="btn btn-info">Dividir</button>
         </form>
 
     </div>
