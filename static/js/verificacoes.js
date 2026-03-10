@@ -23,11 +23,12 @@ function limpaInputsLogin() {
 
 document.addEventListener("DOMContentLoaded", function () {
     const formLogin = document.getElementById('form-login')
+    const formCadastro = document.getElementById('form-cadastro')
 
     formLogin.addEventListener("submit", function (event) {
         //pegar os dois inputs do formulario
-        const inputCpf  = document.getElementById('input-cpf')
-        const inputSenha  = document.getElementById('input-senha')
+        const inputCpf = document.getElementById('input-cpf')
+        const inputSenha = document.getElementById('input-senha')
 
         let temErro = false
 
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (inputSenha.value === '') {
             inputSenha.classList.add('is-invalid')
             temErro = true
-        } else{
+        } else {
             inputSenha.classList.remove('is-invalid')
         }
 
@@ -54,19 +55,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     })
 
-    formCadastro.addEventListener("submit", function (event))
-    //pegar os input's do cadastro
-    const inputNome  = document.getElementById('input-nome')
-    const inputData  = document.getElementById('input-data')
-    const inputEmail  = document.getElementById('input-email')
-    const inputCpf1  = document.getElementById('input-cpf1')
-    const inputSenha1  = document.getElementById('input-senha1')
-    const inputCargo  = document.getElementById('input-cargo')
-    const inputSalario  = document.getElementById('input-salario')
+    formCadastro.addEventListener("submit", function (event) {
+        //pegar os input's do cadastro
+        const inputNome = document.getElementById('input-nome')
+        const inputData = document.getElementById('input-data')
+        const inputEmail = document.getElementById('input-email')
+        const inputCpf1 = document.getElementById('input-cpf1')
+        const inputSenha1 = document.getElementById('input-senha1')
+        const inputCargo = document.getElementById('input-cargo')
+        const inputSalario = document.getElementById('input-salario')
 
-    let temErro = false
+        let temErro = false
 
-    //verificar se os input's estão vazios
+        //verificar se os input's estão vazios
         if (inputCpf1.value === '') {
             inputCpf1.classList.add('is-invalid')
             temErro = true
@@ -77,14 +78,38 @@ document.addEventListener("DOMContentLoaded", function () {
         if (inputSenha1.value === '') {
             inputSenha1.classList.add('is-invalid')
             temErro = true
-        } else{
+        } else {
             inputSenha1.classList.remove('is-invalid')
         }
         if (inputNome.value === '') {
             inputNome.classList.add('is-invalid')
             temErro = true
-        } else{
+        } else {
             inputNome.classList.remove('is-invalid')
+        }
+        if (inputData.value == '') {
+            inputData.classList.add('is-invalid')
+            temErro = true
+        } else {
+            inputData.classList.remove('is-invalid')
+        }
+        if (inputEmail.value === '') {
+            inputEmail.classList.add('is-invalid')
+            temErro = true
+        } else {
+            inputEmail.classList.remove('is-invalid')
+        }
+        if (inputCargo.value === '') {
+            inputCargo.classList.add('is-invalid')
+            temErro = true
+        } else {
+            inputCargo.classList.remove('is-invalid')
+        }
+        if (inputSalario.value === '') {
+            inputSalario.classList.add('is-invalid')
+            temErro = true
+        } else {
+            inputSalario.classList.remove('is-invalid')
         }
 
         if (temErro) {
@@ -94,4 +119,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-}  )
+    })
+
+})
